@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="mds.css">
+    <script src="mds.js"></script>
+    <script src="disable.js"></script>
+    <title>MD simple</title>
+</head>
+<body>
+    <h1>Mandatory UX-design 1</h1>
+    <h3>Jim Nervall</h3>
+    <h2>Textfield</h2>
+    <div class="mds-text-field">      
+        <input class="mds-text-field__input" type="text" required>
+        <span class="mds-text-field__span--border-bottom"></span>
+        <label class="mds-text-field__label">Name</label>
+    </div>
+    <h2>Switch</h2>
+    <div class="mds-switch">
+        <input type="checkbox" id="switch" name="mds-switch__input" class="mds-switch__input" checked>
+	    <label for="switch" class="mds-switch__label"></label>
+    </div>
+    <h2>Checkbox</h2>
+    <label class="mds-checkbox">
+        <input class="mds-checkbox__input" type="checkbox" name="checkbox" value="Yes" checked>
+        <span class="mds-checkbox__span"></span>
+    </label>
+    <h2>Radio</h2>
+    <label class="mds-radio">
+        <input class="mds-radio__input" type="radio" name="radio" checked>
+        <span class="mds-radio__span"></span>
+    </label>
+    <label class="mds-radio">
+        <input class="mds-radio__input" type="radio" name="radio">
+        <span class="mds-radio__span"></span>
+    </label>
+    <div class="mds-button">
+        <button class="mds-button__disable">Disable all</button>
+        <button class="mds-button__enable">Enable all</button>
+    </div><br><br><br>
+    <script>
+        const textFieldObject = document.querySelector('.mds-text-field');
+        mds.textField(textFieldObject);
+    </script>
+</body>
+</html>

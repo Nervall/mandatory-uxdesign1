@@ -1,0 +1,325 @@
+/*===== Main settings =====*/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 100%;
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+button, input, select, textarea {
+  font-family: 'Roboto', sans-serif;
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+h2 {
+  margin-top: 35px;
+  font-weight: 600;
+  color: #333;
+}
+
+h3 {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+/*===== Text field =====*/
+.mds-text-field {
+  position: relative;
+  margin: 15px 0px;
+  height: 56px; 
+  width: 280px;
+}
+
+.mds-text-field__input{
+  box-sizing: border-box;
+  outline: 0;
+  border: 0;
+  width: 280px;
+  height: 56px;
+  padding: 12px 12px 0px 12px;
+  display: block;
+  background-color: #eee;
+  border-radius: 4px 4px 0px 0px;
+  border-bottom: 1px solid #666; 
+}
+
+.mds-text-field__input:hover {
+  background-color: #ddd;
+}
+
+.mds-text-field__span--border-bottom {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 0px;
+  border-bottom: 2px solid #8E24AA;
+  transform: scaleX(0);   
+}
+
+.mds-text-field__input:focus ~ .mds-text-field__span--border-bottom {
+  width: 280px;
+  transform: scaleX(1); 
+  transition: transform 0.2s ease;
+}
+
+.mds-text-field__label {
+  position: absolute;
+  color: #aaa;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 12px;
+  pointer-events: none;
+  transition: .2s ease;
+}
+
+.mds-text-field__label--active {
+  position: absolute;
+  font-size: 12px;
+  top: 7px;
+  left: 12px;
+  color: #8E24AA;
+  transition: .2s ease;
+}
+
+.mds-text-field__input:disabled {
+  background-color: #eeeeee;
+  outline: 0;
+  border: 0;
+  padding: 12px 12px 0px 12px;
+  display: block;
+  border-radius: 4px 4px 0px 0px;
+  border-bottom: 1px solid #666; 
+}
+
+
+/*===== Switch =====*/
+.mds-switch__input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.mds-switch__label {
+  position: relative;
+  margin: 15px 0px;
+  display: inline-block;
+  min-width: 112px;
+  cursor: pointer;
+  padding: 16px 0 16px 44px;
+}
+
+.mds-switch__label::before, .mds-switch__label::after {
+  content: "";
+  position: absolute;
+  margin: 0;
+  outline: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  transition: all 0.2s ease;
+}
+
+.mds-switch__label::before {
+  left: 1px;
+  width: 36px;
+  height: 14px;
+  background-color: #9E9E9E;
+  border-radius: 8px;
+}
+
+.mds-switch__label::after {
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #FAFAFA;
+  border-radius: 50%;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+}
+
+.mds-switch__input:checked + .mds-switch__label::before {
+  background-color: #CE93D8;
+}
+
+.mds-switch__input:checked + .mds-switch__label::after {
+  background-color: #8E24AA;
+  transform: translate(85%, -50%);
+}
+
+.mds-switch__input:checked:disabled + .mds-switch__label::after {
+  background-color: #eee;
+}
+
+.mds-switch__input:checked:disabled + .mds-switch__label::before {
+  background-color: #ccc;
+}
+
+/*===== Checkbox =====*/
+.mds-checkbox {
+  margin: 15px 0px;
+  display: block;
+}
+
+.mds-checkbox__input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: relative;
+}
+
+.mds-checkbox__span::before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #9E9E9E;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.mds-checkbox__input:checked + .mds-checkbox__span::before {
+  display: inline-block;
+  border: 0;
+  background-color: #8E24AA;
+  width: 24px;
+  height: 24px;
+  transition: background-color 0.1s ease;
+}
+
+.mds-checkbox__span::after {
+  font-family: 'Material Icons';
+  font-size: 23px;
+  content: "\E876";
+  color: white;
+  position: absolute;
+  opacity: 0;
+  transform: scaleX(0); 
+}
+
+.mds-checkbox__input:checked + .mds-checkbox__span::after {
+  cursor: pointer;
+  box-sizing: border-box;
+  display: inline-block;
+  position: absolute;
+  opacity: 1;
+  transform: scaleX(1); 
+  transition: transform 0.2s ease;
+}
+
+.mds-checkbox__input:checked:disabled + .mds-checkbox__span::before {
+  background-color: #aaa;
+}
+
+/*===== Radio =====*/
+.mds-radio {
+  display: block;
+  position: relative;
+  margin: 15px 0px 0px 0px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.mds-radio__input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.mds-radio__span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 2px solid #999;
+  border-radius: 50%;
+}
+
+.mds-radio__input:checked ~ .mds-radio__span {
+  border: 2px solid #8E24AA;
+  transition: all 0.3s ease;
+}
+
+.mds-radio__span::after {
+  content: "";
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.mds-radio__input:checked ~ .mds-radio__span::after {
+  display: block;
+  transition: opacity 0.4s, width 0.4s;
+  opacity: 1;
+}
+
+.mds-radio__span::after {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: #8E24AA;
+  border-radius: 50%;
+}
+
+.mds-radio__input:checked:disabled ~ .mds-radio__span {
+  border: 2px solid #aaa;
+}
+
+.mds-radio__input:disabled ~ .mds-radio__span {
+  border: 2px solid #aaa;
+}
+
+.mds-radio__input:disabled ~ .mds-radio__span::after {
+  background-color: #aaa;
+}
+
+
+/*===== Buttons =====*/
+button:focus {
+ outline: none;
+}
+
+.mds-button {
+  width: 100%;
+}
+
+.mds-button__disable, .mds-button__enable {
+  width: 140px;
+  height: 36px;
+  padding: 0 16px;
+  margin: 50px 10px 20px 0px;
+  float: left;
+  background-color: #8E24AA;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+  border: 0;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow:  0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+    0px 3px 1px -2px rgba(0, 0, 0, 0.12); 
+}
+
+.mds-button__disable:hover, .mds-button__enable:hover {
+  background-color: rgb(163, 44, 196);
+  outline: 0;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 5px 8px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+}
